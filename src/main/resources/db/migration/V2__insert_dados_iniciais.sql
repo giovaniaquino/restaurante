@@ -1,4 +1,4 @@
-INSERT INTO mesas(numero, descricao, capaciade) VALUES
+INSERT INTO mesas(numero, descricao, capacidade) VALUES
     (1, 'Mesa próxima à entrada', 4),
     (2, 'Mesa central', 4),
     (3, 'Mesa próxima à janela', 2),
@@ -16,7 +16,7 @@ SELECT id, 'Batata Frita', 'Proção de batata frita crocante', 28.90, 15
 FROM categorias_produtos WHERE nome = 'Entradas';
 
 INSERT INTO produtos(categoria_id, nome, descricao, preco, tempo_preparo_minutos)
-SELECT id, 'X-Burger', 'Hambúrguer artesanal com queijo e molho especial', 34. 90, 25
+SELECT id, 'X-Burger', 'Hambúrguer artesanal com queijo e molho especial', 34.90, 25
 FROM categorias_produtos WHERE nome = 'Pratos Principais';
 
 INSERT INTO produtos(categoria_id, nome, descricao, preco, tempo_preparo_minutos)
