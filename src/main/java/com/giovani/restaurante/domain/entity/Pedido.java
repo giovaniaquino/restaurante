@@ -3,7 +3,7 @@ package com.giovani.restaurante.domain.entity;
 import com.giovani.restaurante.domain.enums.StatusPedido;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pedidos")
@@ -14,10 +14,10 @@ public class Pedido {
     private Long id;
 
     @Column(name = "data_abertura")
-    private LocalDate dataAbertura;
+    private LocalDateTime dataAbertura;
 
     @Column(name = "data_fechamento")
-    private LocalDate dataFechamento;
+    private LocalDateTime dataFechamento;
 
     @Enumerated(EnumType.STRING)
     private StatusPedido status = StatusPedido.ABERTO;
@@ -30,7 +30,7 @@ public class Pedido {
 
     @PrePersist
     public void prePersist(){
-        dataAbertura = LocalDate.now();
+        dataAbertura = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -41,19 +41,19 @@ public class Pedido {
         this.id = id;
     }
 
-    public LocalDate getDataAbertura() {
+    public LocalDateTime getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(LocalDate dataAbertura) {
+    public void setDataAbertura(LocalDateTime dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 
-    public LocalDate getDataFechamento() {
+    public LocalDateTime getDataFechamento() {
         return dataFechamento;
     }
 
-    public void setDataFechamento(LocalDate dataFechamento) {
+    public void setDataFechamento(LocalDateTime dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 

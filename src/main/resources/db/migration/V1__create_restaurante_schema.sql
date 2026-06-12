@@ -43,7 +43,7 @@ CREATE INDEX idx_pedidos_status ON pedidos(status);
 CREATE INDEX idx_pedidos_data_abertura ON pedidos(data_abertura);
 
 CREATE TABLE pedido_itens (
-    id BIGSERAIL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     pedido_id BIGINT NOT NULL REFERENCES pedidos(id),
     produto_id BIGINT NOT NULL REFERENCES produtos(id),
     quantidade INTEGER NOT NULL  CHECK ( quantidade > 0 ),

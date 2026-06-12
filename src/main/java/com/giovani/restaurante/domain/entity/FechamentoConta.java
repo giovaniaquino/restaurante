@@ -3,7 +3,7 @@ package com.giovani.restaurante.domain.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "fechamento_conta")
@@ -15,14 +15,14 @@ public class FechamentoConta {
 
     private BigDecimal subtotal;
 
-    @Column(name = "tava_servico")
+    @Column(name = "taxa_servico")
     private BigDecimal taxaServico;
 
     private BigDecimal desconto;
     private BigDecimal total;
 
     @Column(name = "data_fechamento")
-    private LocalDate dataFechamento;
+    private LocalDateTime dataFechamento;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "pedido_id")
@@ -30,7 +30,7 @@ public class FechamentoConta {
 
     @PrePersist
     public void prePersist() {
-        this.dataFechamento = LocalDate.now();
+        this.dataFechamento = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -73,11 +73,11 @@ public class FechamentoConta {
         this.total = total;
     }
 
-    public LocalDate getDataFechamento() {
+    public LocalDateTime getDataFechamento() {
         return dataFechamento;
     }
 
-    public void setDataFechamento(LocalDate dataFechamento) {
+    public void setDataFechamento(LocalDateTime dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 
