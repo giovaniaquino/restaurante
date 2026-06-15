@@ -4,6 +4,7 @@ import com.giovani.restaurante.domain.entity.CategoriaProduto;
 import com.giovani.restaurante.domain.entity.Produto;
 import com.giovani.restaurante.dto.ProdutoRequest;
 import com.giovani.restaurante.dto.ProdutoResponse;
+import com.giovani.restaurante.exception.RegraNegocioException;
 import com.giovani.restaurante.repository.CategoriaProdutoRepository;
 import com.giovani.restaurante.repository.ProdutoRepository;
 import org.springframework.data.domain.Page;
@@ -55,10 +56,10 @@ public class ProdutoService {
     }
 
     private Produto buscarProdutoPorId(Long id){
-        return produtoRepository.findById(id).orElseThrow(() -> new RuntimeException("Produto não encontrado"));
+        return produtoRepository.findById(id).orElseThrow(() -> new RegraNegocioException("Produto não encontrado"));
     }
 
     private CategoriaProduto buscarCategoriaPorId(Long id){
-        return categoriaProdutoRepository.findById(id).orElseThrow(() -> new RuntimeException("Categoria não encontrado"));
+        return categoriaProdutoRepository.findById(id).orElseThrow(() -> new RegraNegocioException("Categoria não encontrado"));
     }
 }
